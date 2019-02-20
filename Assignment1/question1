@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl 'http://api.icndb.com/jokes/random' | jq '.value.joke' | cowsay -f blowfish | lolcat
