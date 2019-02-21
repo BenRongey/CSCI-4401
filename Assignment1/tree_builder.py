@@ -2,6 +2,7 @@
 # Builds a graphical tree of PID's, PPID's, and Levels of those PID's
 
 import csv
+from graphviz import Digraph
 
 with open("forkOutput.csv") as my_file:
     
@@ -22,3 +23,5 @@ with open("forkOutput.csv") as my_file:
     print(f'Processed {line_count} lines.')
 
 my_file.close()
+
+dot = Digraph(comment='The Round Table')
