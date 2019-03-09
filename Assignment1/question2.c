@@ -16,18 +16,19 @@ int main() {
     scanf("%d", &loopCount);
     FILE *fptr;
     fptr= fopen("forkOutput.csv", "w");
-    fprintf(fptr, "PID, PPID, Level\n");
-    fprintf(fptr, "%d, %d, %d\n", getpid(), getppid(), levelCount);
+    fprintf(fptr, "PID, PPID, Level, Fork Of\n");
+    fprintf(fptr, "%d, %d, %d, N/A\n", getpid(), getppid(), levelCount);
     fclose(fptr);
 
     for(i = 0; i < loopCount; i++) { 
         
         if(fork() == 0) {
-
-            levelCount = levelCount +1;
-            fptr = fopen("forkOutput.csv", "a");
-            fprintf(fptr, "%d, %d, %d\n", getpid(), getppid(), levelCount); 
             
+            levelCount = levelCount + 1;
+            fptr = fopen("forkOutput.csv", "a");
+            fprintf(fptr, "%d, %d, %d, %d\n", getpid(), getppid(), levelCount, getppid()); 
+            fclose(fptr);
+
             // Without this exit command, the for loop will call recursively.  Else, all forks will have the same PPID
             // exit(0); 
             
