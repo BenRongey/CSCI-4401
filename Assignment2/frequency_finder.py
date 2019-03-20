@@ -6,10 +6,13 @@
 
 import time
 
+# Used to calculate time (using seconds and float)
 start_time = time.time()
 
+
 def get_freq(name):
-    
+
+    # These variables will store our relevant data
     num_lines = 0
     num_words = 0
     count_1 = 0
@@ -21,10 +24,12 @@ def get_freq(name):
     count_7 = 0
     count_8 = 0
     
+    # If the given file name exists, open it and read it line by line
     if name:
         with open(name, 'r') as file_obj:
             for line in file_obj:
     
+                # Remove all non-essential characters per the given instructions
                 line = line.replace('/', ' ')
                 line = line.replace('[', ' ')
                 line = line.replace(']', ' ')
@@ -52,7 +57,10 @@ def get_freq(name):
                 line = line.replace('<', ' ')
                 line = line.replace('>', ' ')
                 
+                # Split the words by spaces 
                 word_list = line.split( )
+
+                # Sort the word size into the correct variables.  Default Python doesn't have switch statements, which seems kinda crazy.
                 for word in word_list:
                     if len(word) == 1:
                         count_1 += 1
@@ -70,9 +78,12 @@ def get_freq(name):
                         count_7 += 1
                     else:
                         count_8 += 1
+                
+                # Not required for the assignment, but I was curious
                 num_lines += 1
                 num_words += len(word_list)
             
+        # Display the data to the terminal
         print('There are ' + str(count_1) + ' words of length 1')
         print('There are ' + str(count_2) + ' words of length 2')
         print('There are ' + str(count_3) + ' words of length 3')
@@ -86,10 +97,13 @@ def get_freq(name):
         print('Total Words: ' + str(num_words))
         print()
 
+        # Close the open stream
         file_obj.close
 
-
+# Run the actual function defined above
 get_freq('enwik9')
+
+# Subtract current time from the above saved time to get the total float (seconds) of run time for the script
 print('--- %s seconds ---' % (time.time() -start_time))
 
 
