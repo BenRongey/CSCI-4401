@@ -39,41 +39,54 @@ def get_freq(name):
     if name:
         with open(name, 'r') as file_obj:
             for line in file_obj:
-                while num_lines < 1:
     
-                    line = line.replace('/', ' ')
-                    line = line.replace('[', ' ')
-                    line = line.replace(']', ' ')
-                    line = line.replace('*', ' ')
-                    line = line.replace("'", " ")
-                    line = line.replace('!', ' ')
-                    line = line.replace('@', ' ')
-                    line = line.replace('$', ' ')
-                    line = line.replace('%', ' ')
-                    line = line.replace('^', ' ')
-                    line = line.replace('&', ' ')
-                    line = line.replace('+', ' ')
-                    line = line.replace('~', ' ')
-                    line = line.replace('`', ' ')
-                    line = line.replace('\\', ' ')
-                    line = line.replace('|', ' ')
-                    line = line.replace('?', ' ')
-                    line = line.replace('{', ' ')
-                    line = line.replace('}', ' ')
-                    line = line.replace('#', ' ')
-                    line = line.replace('"', ' ')
-                    line = line.replace('.', ' ')
-                    line = line.replace('=', ' ')
-                    line = line.replace(':', ' ')
-                    line = line.replace('<', ' ')
-                    line = line.replace('>', ' ')
-                    
-                    word_list = line.split( )
-                    for word in word_list:
-                        if len(word) == 1:
-                            count_1 += 1
-                    num_lines += 1
-                    num_words += len(word_list)
+                line = line.replace('/', ' ')
+                line = line.replace('[', ' ')
+                line = line.replace(']', ' ')
+                line = line.replace('*', ' ')
+                line = line.replace("'", " ")
+                line = line.replace('!', ' ')
+                line = line.replace('@', ' ')
+                line = line.replace('$', ' ')
+                line = line.replace('%', ' ')
+                line = line.replace('^', ' ')
+                line = line.replace('&', ' ')
+                line = line.replace('+', ' ')
+                line = line.replace('~', ' ')
+                line = line.replace('`', ' ')
+                line = line.replace('\\', ' ')
+                line = line.replace('|', ' ')
+                line = line.replace('?', ' ')
+                line = line.replace('{', ' ')
+                line = line.replace('}', ' ')
+                line = line.replace('#', ' ')
+                line = line.replace('"', ' ')
+                line = line.replace('.', ' ')
+                line = line.replace('=', ' ')
+                line = line.replace(':', ' ')
+                line = line.replace('<', ' ')
+                line = line.replace('>', ' ')
+                
+                word_list = line.split( )
+                for word in word_list:
+                    if len(word) == 1:
+                        count_1 += 1
+                    elif len(word) == 2:
+                        count_2 += 1
+                    elif len(word) == 3:
+                        count_3 += 1
+                    elif len(word) == 4:
+                        count_4 += 1
+                    elif len(word) == 5:
+                        count_5 += 1
+                    elif len(word) == 6:
+                        count_6 += 1
+                    elif len(word) == 7:
+                        count_7 += 1
+                    else:
+                        count_8 += 1
+                num_lines += 1
+                num_words += len(word_list)
             
         print('There are ' + str(count_1) + ' words of length 1')
         print('There are ' + str(count_2) + ' words of length 2')
